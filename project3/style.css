@@ -1,0 +1,105 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* пэддинги и бордеры не добавляют доп. пространство, а забирают у блока */
+}
+header {
+    /* height: 70px; */
+    background-color: rgba(241, 241, 241, 0.851);
+    padding: 20px 0; /* 30px - сверху и снизу. 0 - справа и слева */ 
+    margin-bottom: 30px;
+}
+h1 {
+    text-align: center; /* центрирование текста */
+    font-family: 'Ubuntu', sans-serif; /* задаем подключенный шрифт */
+}
+main {
+    width: 90%;
+    margin: auto;
+    background-color: khaki;
+    display: flex; /* свойство позиционирования элементов. по умолчанию размещает элементы  строку */
+    flex-wrap: wrap; /* элементы остаются с заданными размерами и если не хватает места, перепрыгиывабт на след */
+}
+div {
+    width: calc(50% - 20px);
+    height: 300px;
+    /* background-color: seagreen; */
+    padding: 20px; /* внутренний отступ со всех сторон */
+    margin: 10px;
+    background-size: cover;
+    background-repeat: no-repeat; 
+    transition: 2s; /* плавный анимированный переход */
+}
+div:hover {
+    transform: scale(1.05) rotate(10deg);
+    box-shadow: 15px 9px 19px 9px rgba(141, 106, 51, 0.2);
+}
+.item-1 {
+    background-image: url(./images/img1.jpg);
+    background-size: cover; /* contain */
+    background-repeat: no-repeat; /* не повторять картинку, если ее размер меньше, чем блок */
+    background-position: center; /* разместит по центру по вертикали и горизонтали */
+}
+.item-2 {
+    background-image: url(./images/img2.jpg); 
+}
+.item-3 {
+    background-image: url(./images/img2.jpg);
+}
+
+
+/*
+    
+    box-shadow - тень для элемента
+
+    transform позволяет увеличить, повернуть, масштабировать, наклонять
+    scale(N) - масштабирует элемент. N - коэффицент масштабирования. >1 - увеличть, <1 - уменьшит
+    rotate(Ndeg) - поворачиваем картинку, Ndeg - угол поворота. deg - degree - градус  
+
+    Псевдоклассы - особое состояние элемента 
+        :nth-child() - элемент по порядку
+        :hover - состояние элемента при наведении на него
+
+    1. img - добавление картинки в html
+    2. background image - добавление картинки фона
+
+    https://flexboxfroggy.com/#ru 
+    1. Пройти уровни с 5 по 13
+    2. Закончить добавлять картинки в блоки, подогонать под размеры
+    
+
+    Задача. в каждый блок добавить соответствующую картинку
+
+    background-size: cover 
+        cover - картинка подстраивается под ширину блока, а высота меняется пропорционально
+        contain - картинка подстраивается под высоту блока, а ширина меняется пропорционально
+
+    функция calc() позволяет рассчитать размеры используя математические операторы
+
+    flex - по умолчанию позволяет разместить элементы в строку.
+        flex задаем в родительский элемент блоков, которые мы хотим разместить в строку
+
+    по умолчанию flex игнорирует размеры блоков, чтобы разместить их в одну строку.
+        мы можем изменить это правило с помощью свойства flex-wrap со значением wrap 
+
+    ДЗ. 
+        1. Создать папку images в project3 и поместить туда картинки (img-1, img-2 .. img-8)
+        2. Пройти первые 4 уровня https://flexboxfroggy.com/#ru
+        3. Выполнить задачу по ссылке https://docs.google.com/document/d/1QjmspqtLhjukJdLpx0IIrkUTLt4F-2CNB4LoukpaNjc/edit
+
+    margin/padding
+
+    margin: 10px; - 10px со всех сторон
+    margin: 10px 20px;     10px - сверху и снизу, 20px - справа и слева
+    margin: 10px auto 20px;       10px - сверху, auto - справа и слева, 20px - снизу
+    margin: 10px 20px 30px 0;      по часовой стрелке сверху->справа->снизу->слева
+
+    margin-top: 10px
+    margin-right: 20px
+    margin-bottom: 30px
+    margin-left: 40px
+
+    * - селектор для выбора всех элементов в html
+
+    ctrl + shift + R - обновить страницу с кэшем
+*/

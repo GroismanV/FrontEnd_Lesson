@@ -1,0 +1,93 @@
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 25px;
+}
+
+.wrapper {
+  border: 1px solid black;
+  width: 350px;
+  height: 350px;
+  position: relative;
+}
+
+.inner {
+  background-color: green;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  right: -30px;
+}
+
+.fixed {
+  background-color: green;
+  width: 100px;
+  height: 100px;
+  position: sticky;
+  bottom: 0;
+}
+
+.empty {
+  height: 1000px;
+  width: 100%;
+  background-color: gray;
+}
+
+.fixed {
+  transition: 2s;
+}
+
+.fixed:hover {
+  transform: translate(50px, 15px) scale(2) rotate(30deg);
+}
+
+
+
+
+
+
+
+
+<ul>
+  <li>Task 1</li>
+  <li>Task 2</li>
+  <li>Task 3</li>
+</ul>
+
+
+
+/* after, before */
+
+ul {
+  list-style: none;
+}
+
+li:after {
+  content: '⬅';
+  margin-left: 10px;
+  /* border: 1px solid red; */
+  opacity: 0;
+  transition: 2s;
+}
+
+li:before {
+  content: '➡';
+  margin-right: 10px;
+  /* border: 1px solid green; */
+  opacity: 0;
+  transition: 2s;
+}
+
+li:hover::after,
+li:hover::before {
+  opacity: 1;
+}
+
+
+
+

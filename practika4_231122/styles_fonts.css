@@ -1,0 +1,37 @@
+html,
+body {
+  font-size: 16px;
+}
+.parent-grid {
+  font-size: 2rem;
+  /* в два раза больше чем корневой элемент 2*16 = 32px  */
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+button {
+  font-size: 1.25rem;
+  padding: 0.25rem 0.5rem;
+}
+/* элементы связанные с текстом используют em / rem */
+/* p, span, button, input, label, h1-h6, placeholder, ul ,li */
+/* padding, lign-height, border-radius - 
+тоже задаются в rem но именно у текстовых */
+
+/* wrapper container */
+/*  div, main, section, header */
+/* крупные элементы которые содержат в себе много маленьких */
+
+/* Устанавливает значение шрифта относительно родителя */
+.parent {
+  font-size: 2em;
+}
+.child {
+  font-size: 2em;
+}
+
+.another-child {
+  font-size: 3em;
+}

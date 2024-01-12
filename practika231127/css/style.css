@@ -1,0 +1,175 @@
+:root {
+    --first-bg-color: red;
+    --second-bg-color: orange;
+    --third-bg-color: purple;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.container-1 {
+    background-color: red;
+}
+
+/* @media (max-width: 1024px) {
+    .container-1 {
+        background-color: orange;
+    }
+
+    h1 {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container-1 {
+        background-color: green;
+    }
+}
+
+@media (max-width: 576px) {
+    .container-1 {
+        background-color: pink;
+    }
+} */
+
+/* 1025 ------- > ... */
+/* 769 ------- > 1024px */
+/* 577 ------- > 768px */
+/* 0 ------- > 576px pink */ 
+
+/* @media (min-width:768px) and (max-width:1024px){
+    .container-1 {
+        background-color: orange;
+    }
+} */
+
+
+/* @media (min-width:768px){
+    .container-1 {
+        background-color: green;
+    }
+}
+
+@media (min-width:1024px){
+    .container-1 {
+        background-color: orange;
+    }
+} */
+
+.container {
+    padding: 20px;
+}
+
+.example {
+    margin: 20px 0;
+}
+
+.example-1 h2 {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.example-1 h2::before {
+    content: "This is ";
+    position: relative;
+    z-index: 2;
+}
+
+.example-1 h2::after {
+    /* content: " !!!"; */
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 40px;
+    background-color: orange;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.list {
+    background-color: indianred;
+    padding: 20px;
+    list-style: none;
+    border-radius: 8px;
+}
+
+.list__item {
+    padding: 8px 12px;
+    color: #fff;
+}
+
+.example-1 .list .list__item:first-child {
+    background-color: green;
+}
+
+.example-1 .list .list__item:last-child {
+    background-color: orange;
+}
+
+.example-2 .list .list__item:nth-child(even){
+    background-color: green;
+}
+
+.example-2 .list .list__item:nth-child(odd){
+    background-color: orange;
+}
+
+.example-3 .list .list__item:nth-child(1){
+    background-color: green;
+}
+
+.example-3 .list .list__item:nth-child(4){
+    background-color: orange;
+}
+
+.example-4 .list .list__item:nth-child(3n){
+    background-color: orange;
+}
+
+.example-5 .list .list__item:nth-child(3n + 1){
+    background-color: orange;
+}
+
+.example-6 .example__content h1 + p {
+    background-color: red;
+}
+
+.example-7 .example__content h1 ~ p {
+    background-color: orange;
+}
+
+.example-8 input[name] {
+    padding: 8px 12px;
+}
+
+.example-8 input[type="text"] {
+    border: 1px solid red;
+}
+
+.example-8 input[type="number"] {
+    border: 2px solid blue;
+}
+
+.example-9 a[href^="index"] {
+    background-color: red;
+}
+
+.example-9 a[href^="index"]:hover {
+    background-color: #000;
+}
+
+.example-9 a[href^="http"] {
+    background-color: orange;
+}
+
+.example-9 a[href$=".com"] {
+    background-color: green;
+}
+
+

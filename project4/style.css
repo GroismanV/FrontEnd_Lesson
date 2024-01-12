@@ -1,0 +1,71 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* padding не добавляется к размеру элемента, а берется изнутри */
+}
+section {
+    background-color: #EEEFF1;
+    padding: 100px 0; /* 100px - сверху и снизу, 0 - справа и слева */
+}
+h1 {
+    font-size: 32px;
+    text-align: center;
+}
+p {
+    width: 30%;
+    color: #727272;
+    text-align: center;
+    margin: 50px auto 65px; /* 50px - сверху, auto - справа/слева, 65px - снизу */
+}
+form {
+    width: 30%;
+    display: flex;
+    flex-direction: column; /* разместить элементы в колонку */
+    margin: auto;
+}
+.form-control {
+    display: flex;
+    justify-content: space-between;
+    /* gap: 30px; */
+}
+.form-control input {
+    width: calc(50% - 15px); 
+    padding: 20px;
+    border: none; /* сброс границы */
+    outline: none; /* сброс границы инпута, который появляется при нажатии на него (фокус) */
+    caret-color: #34547A; /* цвет курсора в input */
+}
+.form-control input:focus, textarea:focus {
+    border: 1px solid #34547A;
+}
+textarea {
+    padding: 20px;
+    border: none;
+    outline: none;
+    margin: 20px 0 50px; /* 20px - сверху, 0 - справа/слева, 50px - снизу */
+    resize: none;  /* убираем стрелку увеличения textarea */
+}
+input[type="submit"] {
+    width: 50%;
+    margin: auto;
+    padding: 20px 0; /* 20px - сверху/снизу, 0 - справа/слева */
+    border: none;
+    outline: none;
+    background-color: #34547A;
+    color: white;
+    text-transform: uppercase; /* текст в верхнем регистре */
+    letter-spacing: 2.1px; /* расстояние между буквами */
+}
+/*
+    Псевдокласс :focus - это особое состояние input, textarea, в момент ввода в input текста
+
+    Селекторы:
+        1. по тегу - h1 {}, p {}, section {}
+        2. по классу - .className, .item, .item-1, .form-control
+        3. по аттрибуту тега - input[AttrName="AttrValue"]. 
+
+    flex-direction - меняет направление flex элементов.
+        по умолчанию row - все элементы в одну строку
+        column - элементы выстраиваются в колонку, при этом justify-content и align-items
+            меняются. 
+*/

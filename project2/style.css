@@ -1,0 +1,63 @@
+ul {
+    list-style-type: square; /*  */
+}
+.no-marker {
+    list-style-type: none;
+}
+ol {
+    list-style-type: lower-roman;
+}
+table {
+    border-collapse: collapse;
+}
+td, th {
+    border: 1px solid black; /* граница */
+}
+tr:nth-child(even) {
+    background-color: khaki; /* цвет фона */
+}
+/* 
+    вложенность стилей
+
+    <table class="countries">
+    <tr>
+    <tr>
+    <tr>
+    </table>
+ 
+    <table>
+    <tr>
+    <tr>
+    <tr>
+    </table>
+
+        .countries tr  - только 3 tr, который находится внутри 
+            элемента с классом countries 
+
+    Псевдоклассы:
+    :nth-child(N) // N - число, порядковый номер элемента, который хотим выбрать 
+     .нный элемент, например третья строка таблицы
+    
+    :nth-child(even/odd) - even - четные (2, 4, 6, 8)
+                            odd - нечетные (1, 3, 5 ,7 )
+
+    N - может быть следующим
+        а) 2n - even, четные
+        б) 5n - каждый пятый
+        в) 3n + 1 - каждый 3 + 1 (4, 7, 11)
+
+
+    border: размерГраница типГраницы цветГраницы;
+        тип границы:  solid - одна линия
+                        doubled - двойная линия
+                        dotted - рамка из точек 
+
+
+    selector {
+        property: value;
+    }
+
+    селектор {
+        свойство: значение;
+    }
+*/

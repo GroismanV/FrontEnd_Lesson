@@ -1,0 +1,13 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.gallery__image {
+  width: 200px;
+  height: 200px;
+  display: block;
+  object-fit: cover;
+  margin: auto;
+  transition: 0.2s;
+}

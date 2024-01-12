@@ -1,0 +1,27 @@
+.grid-container {
+  display: grid;
+  /* пять одинаковых колонок 100px repeat*/
+  /* 6 одинаковых колонок по 1fr */
+  grid-template-columns: repeat(6, 1fr);
+  /* 3 колонки по 150px */
+  grid-template-rows: repeat(3, 150px);
+  gap: 20px;
+  /* создать расстояние между элементами в 20px */
+}
+
+.grid-child {
+  background: rgb(243, 222, 222);
+  padding: 25px;
+}
+
+.child3 {
+  background: rgb(233, 243, 222);
+  /* grid-column-start: 3;
+  grid-column-end: 6; */
+  grid-column: 3/6;
+}
+
+.grid-child:nth-child(8) {
+  background-color: aqua;
+  grid-column: 4/7;
+}

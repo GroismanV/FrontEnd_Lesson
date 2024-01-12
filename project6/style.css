@@ -1,0 +1,184 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    font-family: 'Inter', sans-serif;
+}
+a {
+    text-decoration: none; /* отменяем нижнее подчеркивание у ссылок */
+}
+header {
+    background-color: #1ABC9C;
+    padding: 15px 0; /* отступы сверху/снизу */
+}
+.wrapper {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav-list {
+    list-style: none; /* сброс маркера у элементов списка */
+    display: flex;
+}
+li:not(:last-child) {
+    margin-right: 20px;
+}
+.nav-link {
+    font-size: 25px;
+    color: black;
+}
+.social-link:not(:last-child) {
+    margin-right: 20px;
+}
+/* about */
+.about {
+    display: flex;
+    align-items: center;
+}
+.about-img {
+    width: 50%;
+}
+.about-info {
+    width: 50%;
+}
+h1 {
+    font-size: 35px;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 35px;
+}
+.about-descr {
+    padding: 0 65px;
+    font-size: 20px;
+    text-align: justify;
+}
+/* наши проекты */
+.projects {
+    background-color: #DCFFEB;
+    padding: 125px 0; /* 125px - сверху/снизу, 0 - справа/слева */
+}
+.projects-wrapper {
+    width: 90%;
+    margin: auto;
+}
+h2 {
+    font-size: 35px;
+    font-weight: 400;
+    margin-bottom: 50px;
+}
+.projects-list {
+    display: flex;
+    gap: 40px; /* отступы между элементами */
+}
+.project {
+    width: 33%; /* calc(33% - 80 / 3) */
+    aspect-ratio: 436/376; /* соотношение сторон */
+    background-image: url(./images/project.png);
+    background-size: 100%; /* картинка масштабируется под размеры блока */
+    display: flex;
+    align-items: flex-end;
+}
+.project-hover {
+    background-color: rgba(0, 0, 0, 0.38);
+    color: white;
+    padding: 30px 35px 15px; /* 30px - сверху/снизу, 35px - справа/слева, 15px - снизу */
+    opacity: 0; /* opacity - прозрачность. 0 - блок полностью прозрачен */
+    /* visibility: hidden; блок невидимый -- display: none;  */
+    transition: 1s; /* плавность анимации */
+}
+.project:hover .project-hover {
+    opacity: 1; /* делаем блок обратно непрозрачным */
+}
+h5 {
+    font-size: 24px;
+    font-weight: 500;
+    font-family: 'Oswald', sans-serif;
+    margin-bottom: 16px;
+}
+.project-hover-text {
+    font-family: 'Open Sans', sans-serif;
+}
+/* Контакты */
+footer {
+    padding: 80px 0; /* 80px - сверху/снизу, 0 - справа/слева */
+}
+.footer-wrapper {
+    width: 90%;
+    margin: auto;
+}
+h3 {
+    font-size: 35px;
+    font-weight: 400;
+    margin-bottom: 55px;
+}
+.footer-list {
+    display: flex;
+    justify-content: space-between;
+}
+.footer-item img {
+    display: block; /* делаем картинку блочной, чтобы разместить по центру */
+    margin: auto;
+}
+/* 
+    .project:not(:last-child) {
+        margin-right: 40px;
+    }
+
+
+    gap - отступы между элементами внутри flexbox
+
+    font-family: 'Inter', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Oswald', sans-serif;
+*/
+
+
+/* 
+
+
+    text-align: justify - выравнивание по ширине
+
+    header li:not(:last-child), header a:not(:last-child) {
+        margin-right: 20px;
+    }
+
+    Задача. добавить отступы между картинками социальных иконок
+
+    h1
+    font-size 32-36px;
+    font-weight: 600;
+
+    p, a, div
+    font-size: 16px
+    font-weight: 400
+    font-style: normal
+    line-height: normal    
+
+
+    :first-child - первый дочерний элемент
+    :last-child - последний дочерний элемент
+
+    :not() - отрицание, инверсия
+
+    Задача. Позиционировать блоки в header в одну строку равноудаленно друг от друга
+
+    list-style: 
+        a) list-style-type - тип маркера
+        б) list-style-pos - 
+        в) list-style-image -
+
+        background: red;
+
+        background:
+         a) background-image
+         б) background-size
+         в) background-position
+         г) background-repeat
+         д) background-color
+
+         background:  url("./img1.jpg") cover center no-repeat;
+*/

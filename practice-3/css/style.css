@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* {
+   padding: 0;
+   margin: 0;
+   box-sizing: border-box;
+   font-family: 'Inter', sans-serif;
+}
+
+ul {
+   list-style: none;
+}
+
+a {
+   text-decoration: none;
+}
+
+.container {
+   max-width: 1320px;
+   margin: 0 auto;
+}
+
+.btn {
+   background-color: #029FAE;
+   padding: 12px 24px;
+   color: #fff;
+   border-radius: 8px;
+   text-transform: capitalize;
+   border: none;
+   font-size: 16px;
+   font-weight: 600;
+
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   gap: 20px;
+}
+
+.navbar {
+   background: #fff;
+   border-bottom: 1px solid #E1E3E5;
+   padding: 14px 0;
+}
+
+.navbar__content {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.dropdown-menu__label {
+   display: none;
+   padding: 6px;
+}
+
+.dropdown-menu__label i {
+   font-size: 24px;
+}
+
+.dropdown-menu__content {
+   display: flex;
+   gap: 32px;
+}
+
+.navbar__link {
+   color: #636270;
+   font-size: 14px;
+   font-weight: 500;
+}
+
+.navbar__link-active {
+   color: #007580;
+}
+
+.navbar__contact span {
+   color: #636270;
+   font-size: 14px;
+}
+
+.navbar__contact a {
+   color: #272343;
+   font-size: 14px;
+   font-weight: 500;
+}
+
+.header {
+   background-color: #F0F2F3;
+   max-width: 1740px;
+   margin: 0 auto;
+   border-radius: 0 0 48px 48px;
+   margin-top: 20px;
+   overflow: hidden;
+}
+
+.header__content {
+   display: flex;
+   min-height: 810px;
+}
+
+.header__left {
+   align-self: center;
+   max-width: 631px;
+}
+
+.header__left p {
+   color: #272343;
+   font-size: 14px;
+   letter-spacing: 1.70px;
+   text-transform: uppercase;
+}
+
+.header__left h1 {
+   color: #272343;
+   font-size: calc(40px + (68 - 40) * ((100vw - 375px) / 1900));
+   font-weight: 700;
+   text-transform: capitalize;
+   line-height: 75px;
+   margin: 8px 0 24px 0;
+}
+
+.header__right {
+   align-self: center;
+   flex-grow: 1;
+   padding: 0 45px;
+}
+
+.gallery {
+   max-width: 475px;
+   margin: 0 auto;
+   position: relative;
+}
+
+.gallery::before {
+   content: "";
+   width: 747px;
+   height: 747px;
+   background-color: #dcdcdc;
+   border-radius: 50%;
+   position: absolute;
+   top: -170px;
+   right: -100px;
+}
+
+.gallery img {
+   width: 100%;
+   display: block;
+   position: relative;
+}
+
+.gallery__sale {
+   background-color: #fff;
+   padding: 30px 20px;
+   border-radius: 50px 70px 50px 70px;
+   display: flex;
+   position: absolute;
+   right: -40px;
+   top: 0;
+}
+
+.gallery__sale>div {
+   margin: auto;
+   text-align: center;
+}
+
+.gallery__sale>div h6 {
+   color: #F05C52;
+   /* font-size: 36px; */
+   font-size: calc(18px + (36 - 18) * ((100vw - 375px) / 1900));
+   font-weight: 700;
+   text-transform: capitalize;
+}
+
+.gallery__sale>div span {
+   color: #272343;
+   font-size: 14px;
+   font-weight: 500;
+   letter-spacing: 0.30px;
+}
+
+.info {
+   padding: 50px 70px;
+   display: grid;
+   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+   gap: 24px;
+   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+   background-color: #fff;
+   border-radius: 12px;
+   position: relative;
+   bottom: 70px;
+}
+
+.info .item {
+   display: flex;
+   gap: 16px;
+   align-items: center;
+}
+
+
+@media (max-width:1024px) {
+   .header__content {
+      flex-direction: column-reverse;
+      padding: 40px 15px;
+   }
+
+   .header__left h1 {
+      line-height: normal;
+   }
+}
+
+@media (max-width:768px) {
+   .info{
+      position: inherit;
+      margin: 20px 15px;
+   }
+
+   .info .item {
+      flex-direction: column;
+      text-align: center;
+  }
+}
+
+@media (max-width: 576px) {
+   .navbar {
+      padding: 15px;
+   }
+
+   .dropdown-menu__label {
+      display: block;
+   }
+
+   .dropdown-menu__content {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      background: #fff;
+      padding: 20px;
+      min-width: 200px;
+      z-index: 2;
+   }
+
+   .dropdown-menu:hover .dropdown-menu__content {
+      display: flex;
+   }
+
+   .header {
+      border-radius: 0 20px 0 20px;
+   }
+
+   .header__content {
+      min-height: auto;
+      gap: 20px;
+   }
+
+   .gallery__sale {
+      padding: 20px 15px;
+   }
+}
