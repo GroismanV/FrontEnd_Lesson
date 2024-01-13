@@ -72,7 +72,7 @@
 
 let rate = 42000;
 
-function exchange(){
+function exchange() {
     // console.log("Hello world !!!");
     // alert("Ok");
     let currentValue = document.querySelector(".input-1").value; // 10000
@@ -86,11 +86,11 @@ function exchange(){
     // 4. Результат
 }
 
-function exchangeReverse(){
+function exchangeReverse() {
     console.log("Hello world !!!!");
 }
 
-function add(){
+function add() {
     // alert("OK");
 
     let currentValue1 = +document.querySelector(".input-3").value; // 10

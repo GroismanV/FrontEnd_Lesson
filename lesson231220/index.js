@@ -6,7 +6,7 @@
 //     return `Hello ${name} ${year}.`;
 // }
 
-// console.log(hello("Santa"));
+//console.log(hello("Santa"));
 
 
 //  Объявление функции (Function Declaration)
@@ -33,7 +33,7 @@
 
 // console.log("Expression", sumV2)
 
-// const hello = name => `Hello ${name}!`;
+const hello = name => `Hello ${name}!`;
 
 // console.log(hello("Santa"));
 
@@ -78,7 +78,7 @@
 // let y = [4,5,6];
 // let c = ["Hello", "World"]
 
-// let result = [1,2,3, ...y]
+// let result = [1, 2, 3, ...y]
 
 // result.push("Hello", "World")
 
@@ -171,7 +171,7 @@
 
 //     for (let i = 0; i < arr.length; i++) {
 //         let item = arr[i];
-        
+
 //         if(callback(item)){
 //             newArray.push(item)
 //         }
