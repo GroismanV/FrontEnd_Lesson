@@ -1,0 +1,55 @@
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+}
+
+
+.container {
+    max-width: 768px;
+    margin: 0 auto;
+}
+
+.todo {
+    background-color: #fff;
+    padding: 12px;
+}
+
+.todo__header {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.todo__header input {
+    padding: 6px 12px;
+}
+
+.todo__header button {
+    padding: 6px 12px;
+    border: none;
+    background-color: blue;
+    color: #fff;
+} 
+
+.todo__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.todo__list li {
+    padding: 6px 12px;
+    background-color: #f9f9f9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
