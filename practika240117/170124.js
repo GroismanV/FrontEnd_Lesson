@@ -100,3 +100,18 @@ const people1 = [
     { name: 'Grace', age: 29 },
     { name: 'Isaac', age: 23 },
 ]
+const sortedPeople = people1.slice().sort((a, b) => {
+    const nameA = a.name.toLowerCase();
+    const nameB = b.name.toLowerCase();
+
+    if (nameA < nameB) {
+        return -1;
+    }
+    if (nameA > nameB) {
+        return 1;
+    }
+
+    return 0; // имена равны
+});
+
+console.log(sortedPeople);
