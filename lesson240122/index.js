@@ -279,22 +279,22 @@
 // console.hello("Jon")
 
 
-class User {
-    constructor(username) {
-        this.username = username;
-    }
+// class User {
+//     constructor(username) {
+//         this.username = username;
+//     }
 
-    say(x) {
-        console.log(x);
-    }
-}
+//     say(x) {
+//         console.log(x);
+//     }
+// }
 
-let user = new User("Jon")
+// let user = new User("Jon")
 
-console.log(User);
-console.dir(User);
+// console.log(User);
+// console.dir(User);
 
-user.say("Hello")
+// user.say("Hello")
 
 
 const users = [
@@ -342,6 +342,44 @@ const users = [
 
 // Задача на понимание объектов, указан массив с данными пользователей
 // 1. getLoan - Отобразить только тех пользователей у кого зарплата больше 200$ и они старше 20 лет, так как банк остальным не одобряет кредит
+// вариант 1
+
+const eligibleUsers = users.filter(user => user.salary > 200 && user.age > 20);
+
+console.log(eligibleUsers);
+
+// вариант 2
+
+const eligibleUsers = [];
+
+for (let i = 0; i < users.length; i++) {
+    const user = users[i];
+    if (user.salary > 200 && user.age > 20) {
+        eligibleUsers.push(user);
+    }
+}
+
+console.log(eligibleUsers);
+
+
 // 2. getUserNames - Отобразить в console имена тех пользователей кто сейчас в сети
+
+const onlineUserNames = users
+    .filter(user => user.status === "online")
+    .map(user => user.username);
+
+console.log(onlineUserNames);
+
 // 3. getUserNames - Далее отобразить не только тех кто в онлайн, также добавить offline пользователей у кого активность была не больше 10 минут назад, и рядом с offline вывести имена
 //    как в примере Jon 10 minutes ago
+const getUserNames = () => {
+    users.forEach(user => {
+        if (user.status === "online") {
+            console.log(`${user.username} is online`);
+        } else if (user.lastActivity <= 10) {
+            console.log(`${user.username} ${user.lastActivity === 0 ? 'just now' : `${user.lastActivity} minutes ago`}`);
+        }
+    });
+};
+
+getUserNames();
