@@ -218,7 +218,7 @@
 // moto.stop();
 
 // В этом примере мы создаем базовый класс Shape, который представляет общие свойства и методы для всех фигур.
-// Дочерние классы Circle и Rectangle наследуют класс Shape и расширяют его функциональность для отображения конкретных фигу
+// Дочерние классы Circle и Rectangle наследуют класс Shape и расширяют его функциональность для отображения конкретных фигур
 // Определение базового класса Shape
 
 class Shape {
@@ -252,3 +252,61 @@ let circle = new Circle();
 //     borderRadius: "50px"
 // });
 circle.render()
+
+// ___________________________________________________________________
+
+// Родительский класс Shape
+class Shape {
+    constructor() {
+        this.styles = {};
+    }
+
+    // Метод для установки стилей
+    setStyle(styleObject) {
+        this.styles = { ...this.styles, ...styleObject };
+    }
+}
+
+// Дочерний класс Circle, наследуется от Shape
+class Circle extends Shape {
+    constructor(radius) {
+        super();
+        this.radius = radius;
+    }
+
+    // Метод для отображения круга
+    display() {
+        console.log(`Circle with radius ${this.radius}`);
+        console.log("Styles:", this.styles);
+    }
+}
+
+// Дочерний класс Rectangle, наследуется от Shape
+class Rectangle extends Shape {
+    constructor(width, height) {
+        super();
+        this.width = width;
+        this.height = height;
+    }
+
+    // Метод для отображения прямоугольника
+    display() {
+        console.log(`Rectangle with width ${this.width} and height ${this.height}`);
+        console.log("Styles:", this.styles);
+    }
+}
+
+// Пример использования
+let circle = new Circle(10);
+circle.setStyle({
+    background: "orange",
+    borderRadius: "50px"
+});
+circle.display();
+
+let rectangle = new Rectangle(20, 30);
+rectangle.setStyle({
+    background: "blue",
+    border: "2px solid red"
+});
+rectangle.display();
