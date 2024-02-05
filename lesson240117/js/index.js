@@ -79,7 +79,7 @@
 
 // function getUserInfo(name, age){
 //     return {
-//         name, 
+//         name,
 //         age
 //     }
 // }
@@ -134,48 +134,135 @@
 // }
 
 // console.log(user?.surname);
+// // -----------------------------
+
+// let btn = document.querySelector(".btn-add");
+// let todos = [
+//     {
+//         id: 1,
+//         label: "Todo 1"
+//     },
+//     {
+//         id: 2,
+//         label: "Todo 2"
+//     },
+//     {
+//         id: 3,
+//         label: "Todo 3"
+//     },
+//     {
+//         id: 4,
+//         label: "Todo 4"
+//     },
+// ];
+
+// function createTodoItem(data = todos) {
+//     let todoList = document.querySelector(".todo__list");
+
+//     todoList.innerHTML = "";
+
+//     data.forEach((todo) => {
+//         let liElement = document.createElement("li");
+//         liElement.classList.add("todo__item");
+//         liElement.innerText = todo.label;
+
+//         let buttonElement = document.createElement("button");
+//         buttonElement.classList.add("todo__remove");
+//         buttonElement.innerText = "Remove";
+
+//         buttonElement.addEventListener("click", () => removeTodoItem(todo.id))
+
+//         liElement.append(buttonElement);
+//         todoList.append(liElement);
+//     })
+// };
+
+
+// function removeTodoItem(id) {
+//     todos = todos.filter(todo => todo.id !== id);
+
+//     createTodoItem();
+// }
+
+// function createNewTodo() {
+//     let label = document.querySelector(".todo__label").value;
+
+//     todos.push({ id: Date.now(), label });
+
+//     createTodoItem();
+
+//     console.log(todos);
+//     document.querySelector(".todo__label").value = "";
+// }
+
+// btn.addEventListener("click", createNewTodo)
+// createTodoItem();
+// // --------------------------------------------
 
 let btn = document.querySelector(".btn-add");
+let todoList = document.querySelector(".todo__list");
+let totalCheckedSpan = document.getElementById("totalChecked");
+
 let todos = [
     {
         id: 1,
-        label: "Todo 1"
+        label: "Todo 1",
+        checked: false
     },
     {
         id: 2,
-        label: "Todo 2"
+        label: "Todo 2",
+        checked: false
     },
     {
         id: 3,
-        label: "Todo 3"
-    },
-    {
-        id: 4,
-        label: "Todo 4"
+        label: "Todo 3",
+        checked: false
     },
 ];
 
 function createTodoItem(data = todos) {
-    let todoList = document.querySelector(".todo__list");
-
     todoList.innerHTML = "";
 
     data.forEach((todo) => {
         let liElement = document.createElement("li");
         liElement.classList.add("todo__item");
-        liElement.innerText = todo.label;
+
+        let checkboxElement = document.createElement("input");
+        checkboxElement.type = "checkbox";
+        checkboxElement.classList.add("todo__checkbox");
+        checkboxElement.checked = todo.checked;
+
+        let labelElement = document.createElement("span");
+        labelElement.innerText = todo.label;
 
         let buttonElement = document.createElement("button");
         buttonElement.classList.add("todo__remove");
         buttonElement.innerText = "Remove";
 
-        buttonElement.addEventListener("click", () => removeTodoItem(todo.id))
+        checkboxElement.addEventListener("change", () => toggleTodoCheck(todo.id));
+        buttonElement.addEventListener("click", () => removeTodoItem(todo.id));
 
-        liElement.append(buttonElement);
-        todoList.append(liElement);
-    })
-};
+        liElement.appendChild(checkboxElement);
+        liElement.appendChild(labelElement);
+        liElement.appendChild(buttonElement);
 
+        todoList.appendChild(liElement);
+    });
+
+    updateTotalChecked();
+}
+
+function toggleTodoCheck(id) {
+    todos = todos.map(todo => {
+        if (todo.id === id) {
+            todo.checked = !todo.checked;
+        }
+        return todo;
+    });
+
+    createTodoItem();
+}
 
 function removeTodoItem(id) {
     todos = todos.filter(todo => todo.id !== id);
@@ -186,13 +273,17 @@ function removeTodoItem(id) {
 function createNewTodo() {
     let label = document.querySelector(".todo__label").value;
 
-    todos.push({ id: Date.now(), label });
+    todos.push({ id: Date.now(), label, checked: false });
 
     createTodoItem();
 
-    console.log(todos);
     document.querySelector(".todo__label").value = "";
 }
 
-btn.addEventListener("click", createNewTodo)
+function updateTotalChecked() {
+    let checkedCount = todos.filter(todo => todo.checked).length;
+    totalCheckedSpan.innerText = checkedCount;
+}
+
+btn.addEventListener("click", createNewTodo);
 createTodoItem();
