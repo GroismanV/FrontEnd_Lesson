@@ -111,3 +111,48 @@ promise()
 // (isNan(data))
 // если нечетное то разрешается resolve через 1 секунду с "odd"
 // если число четное то через две секунды возвращает отклоненный reject с 'even'
+
+function processNumber(data) {
+    return new Promise((resolve, reject) => {
+        if (typeof data !== 'number' || isNaN(data)) {
+            reject(new Error('error'));
+        } else if (data % 2 !== 0) {
+            setTimeout(() => {
+                resolve('odd');
+            }, 1000);
+        } else {
+            setTimeout(() => {
+                reject(new Error('even'));
+            }, 2000);
+        }
+    });
+}
+
+// Пример использования
+const exampleData1 = 5;
+const exampleData2 = 10;
+const exampleData3 = 'not a number';
+
+processNumber(exampleData1)
+    .then(result => {
+        console.log('Resolved:', result);
+    })
+    .catch(error => {
+        console.error('Rejected:', error.message);
+    });
+
+processNumber(exampleData2)
+    .then(result => {
+        console.log('Resolved:', result);
+    })
+    .catch(error => {
+        console.error('Rejected:', error.message);
+    });
+
+processNumber(exampleData3)
+    .then(result => {
+        console.log('Resolved:', result);
+    })
+    .catch(error => {
+        console.error('Rejected:', error.message);
+    });
