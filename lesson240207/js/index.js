@@ -94,37 +94,157 @@ let TODOS_URL = "https://jsonplaceholder.typicode.com/todos";
 //     "completed": false
 // }
 
+let todosData = [];
+
 let createTodoElement = (todo) => {
     let todoElementLi = document.createElement("li");
     todoElementLi.classList.add("todo__item");
 
     todoElementLi.innerText = `${todo.id} - ${todo.title}`;
 
+    let todoElementButton = document.createElement("button");
+    todoElementButton.classList.add("btn-delete");
+    todoElementButton.addEventListener("click", () => deleteTodo(todo.id))
+    todoElementButton.innerText = "Delete";
+
+    todoElementLi.append(todoElementButton)
+
     return todoElementLi;
 }
 
+function deleteTodo(id) {
+    console.log(id)
+}
+
 function toggleLoader() {
-    let loading = document.querySelector('.loading')
-    let siHidden = loading.hasAttribute('hidden')
-    if (isHidden) {
-        loading.removeAttribute('hidden')
+    let loading = document.querySelector(".loading");
+    let isHidden = loading.hasAttribute("hidden");
+
+    // if(isHidden){
+    //     loading.removeAttribute("hidden");
+    // }else {
+    //     loading.setAttribute("hidden", "");
+    // }
+
+    if (loading.classList.contains("loader-active")) {
+        loading.classList.remove("loader-active")
     } else {
-        loading.setAttribute('hidden', "")
+        loading.classList.add("loader-active")
+    }
+
+    // isHidden ? loading.removeAttribute("hidden") : loading.setAttribute("hidden")
+}
+
+// toggleLoader();
+// toggleLoader();
+
+// function getTodos() {
+//     toggleLoader();
+
+//     fetch(TODOS_URL)
+//         .then(res => res.json())
+//         .then(todos => {
+//             // console.log("Результат запросов:", todos);
+
+//             todos.forEach(todo => {
+//                 // console.log(todo)
+//                 let li = createTodoElement(todo)
+
+//                 todoContainer.append(li)
+//             });
+//         })
+//         .catch(err=> console.log(err))
+//         .finally(() => toggleLoader())
+// }
+
+// getTodos();
+
+async function getTodosAsync() {
+    toggleLoader();
+
+    try {
+        let res = await fetch(TODOS_URL);
+        console.log(res)
+        let todos = await res.json();
+
+
+        // todos.slice(0, 20).forEach(todo => {
+        //     // console.log(todo)
+        //     let li = createTodoElement(todo)
+
+        //     todoContainer.append(li)
+        // });
+
+        todosData = todos.slice(0, 20);
+
+        createTodo();
+    } catch (error) {
+        console.log(error)
+    } finally {
+        toggleLoader()
     }
 }
 
-toggleLoader()
+function createTodo() {
+    todosData.forEach(todo => {
+        let li = createTodoElement(todo)
+
+        todoContainer.append(li)
+    });
+}
+
+// getTodosAsync()
 
 
-fetch(TODOS_URL)
-    .then(res => res.json())
-    .then(todos => {
-        // console.log("Результат запросов:", todos);
+let users = [
+    {
+        id: 1,
+        name: "John",
+        surname: "Done"
+    },
+    {
+        id: 2,
+        name: "Bob",
+        surname: "Bobik"
+    },
+    {
+        id: 3,
+        name: "Anna",
+        surname: "Hello"
+    }
+];
 
-        todos.forEach(todo => {
-            // console.log(todo)
-            let li = createTodoElement(todo)
+let content = document.querySelector(".users");
 
-            todoContainer.append(li)
-        });
+function createUsers() {
+    content.innerHTML = "";
+
+    users.forEach(item => {
+        // {
+        //     id: 1,
+        //     name: "John",
+        //     surname: "Done"
+        // }
+
+        let li = document.createElement("li");
+        li.innerText = `${item.id} - ${item.name}`
+
+        let btn = document.createElement("button");
+        btn.innerText = "Удалить";
+
+        btn.addEventListener("click", () => deleteUser(item.id))
+
+        li.append(btn)
+
+        content.append(li)
     })
+}
+
+function deleteUser(userId) {
+    // console.log("user", userId)
+    users = users.filter(item => item.id !== userId); // 1 !== 2, 2 !== 2, 3 !== 2
+
+    createUsers()
+}
+
+createUsers()
